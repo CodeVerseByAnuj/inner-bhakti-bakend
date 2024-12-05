@@ -1,12 +1,10 @@
-const {userData} = require ('../Controller/userController')
+const {signup} = require ('../Controller/userController')
 const express = require ('express');
 
 const userRouter = express.Router()
-userRouter.post('/', userData);
-userRouter.post('/profile', (req,res)=>{
-    res.status(200).json({
-        message:"Hello world is gay"
-    })
-});
+
+userRouter.post('/signup',signup);
+// userRouter.post('/login',login);
+// userRouter.post('/profile',profile);
 
 module.exports = userRouter;
