@@ -1,7 +1,8 @@
 require('dotenv').config();
 const express = require('express');
-const { connectDB, client } = require('./db');
- 
+const { connectDB, client } = require('./DB');
+const PORT = process.env.PORT || 3000;
+// const userRouter = require('./Router/userRouter');
 
 const app = express();
 const userRouter = require('./Router/userRouter');
@@ -9,8 +10,8 @@ const userRouter = require('./Router/userRouter');
 app.use(express.json());
 
 // Listen method
-app.listen(3000, () => {
-    console.log("Hello from listen method");
+app.listen(PORT, () => {
+    console.log(`Server is listening on PORT ${PORT}`);
 });
 
 // Connect to the database
@@ -23,3 +24,6 @@ app.use('/api/user', userRouter);
 app.get('/', (req, res) => {
     res.send("Hello from get method");
 });
+
+
+
